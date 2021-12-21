@@ -1,4 +1,6 @@
 
+![obrázok](https://user-images.githubusercontent.com/71756521/146949581-c55a3281-16e9-4859-8db7-0b3a28ce13d9.png)
+
 ## Tables in angular for showing actual trains on platforms for projest rabbitmq-homework
 
 # Table
