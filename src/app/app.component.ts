@@ -20,8 +20,8 @@ export class AppComponent {
     [{    }]
   ];
   trains = [];
-  displayedColumns: string[] = ['type', 'departure', 'arrival', 'delay', 'platform'];
-  displayedColumns2: string[] = ['type', 'departure', 'arrival', 'delay'];
+  displayedColumns: string[] = ['type', 'departure', 'arrival', 'destination', 'delay', 'platform'];
+  displayedColumns2: string[] = ['type', 'departure', 'arrival', 'destination', 'delay'];
   title = 'table';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
@@ -36,20 +36,28 @@ export class AppComponent {
         // console.log(res)
       })
       axios.get('http://localhost:8000/platforms').then((res) => {
-        this.platforms2 = [
-          [{    }],
-          [{    }],
-          [{    }],
-          [{    }],
-          [{    }]
-        ];
         this.platforms = res.data
-        for (let i = 0; i < 5; i++) {
-          this.platforms2[i]=res.data.filter((x: any) => x.platform == i+1);
-          // console.log(res.data.filter((x: any) => x.platform == i+1))
-        }
+        // for (let i = 0; i < 5; i++) {
+        //   this.platforms2[i]=res.data.filter((x: any) => x.platform == i+1);
+        //   // console.log(res.data.filter((x: any) => x.platform == i+1))
+        // }
 
         // console.log(res)
+      })
+      axios.get('http://localhost:8000/platform1').then((res) => {
+        this.platforms2[0]=res.data
+      })
+      axios.get('http://localhost:8000/platform2').then((res) => {
+        this.platforms2[1]=res.data
+      })
+      axios.get('http://localhost:8000/platform3').then((res) => {
+        this.platforms2[2]=res.data
+      })
+      axios.get('http://localhost:8000/platform4').then((res) => {
+        this.platforms2[3]=res.data
+      })
+      axios.get('http://localhost:8000/platform5').then((res) => {
+        this.platforms2[4]=res.data
       })
 
     }, 2000)
